@@ -1,0 +1,44 @@
+---
+import { slug } from "github-slugger";
+import { tracks } from "@/tracks";
+import { endpoints } from "@/endpoints";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { Leaderboard } from "@/components/leaderboard";
+import { RecordTypeSelector } from "@/components/record-type-selector";
+
+export async function getStaticPaths() {
+  const paths = Object.entries(tracks).reduce((accum, [cup, tracks]) => {
+    const paths = tracks.reduce((trackAccum, track) => {
+      const categories = Object.keys(endpoints[slug(track)]).map(category => {
+        return {
+          params: {
+            cup: slug(cup),
+            track: slug(track),
+            category: slug(category),
+          },
+          props: {
+            url: endpoints[slug(track)][category],
+          },
+        };
+      });
+
+      return trackAccum.concat(categories);
+    }, []);
+
+    return accum.concat(paths);
+  }, []);
+
+  return paths;
+}
+
+const { url } = Astro.props;
+const { cup, track, category } = Astro.params;
+const { ghosts } = await fetch(url).then(res => res.json());
+---
+
+<MainLayout>
+  <div class="mt-24 flex flex-col container items-center gap-24">
+    <RecordTypeSelector cup={cup} track={track} />
+    <Leaderboard data={ghosts} flap={category.endsWith("flap")} client:load />
+  </div>
+</MainLayout>

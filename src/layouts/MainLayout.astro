@@ -1,0 +1,27 @@
+---
+import { Header } from "@/components/header";
+import "@/index.css";
+
+const sha = "52e4ef627f34e149796094d30538f5101206c998";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>MKW Records</title>
+  </head>
+  <body>
+    <Header sha={sha} />
+    <slot />
+  </body>
+</html>
+
+<script is:inline>
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+if (prefersDark) {
+  document.documentElement.classList.add("dark");
+}
+</script>

@@ -1,0 +1,28 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { RecordTypeSelector } from "@/components/record-type-selector";
+import { slug } from "github-slugger";
+import { tracks } from "@/tracks";
+import { endpoints } from "@/endpoints";
+
+export async function getStaticPaths() {
+  return Object.entries(tracks).reduce((accum, [cup, tracks]) => {
+    const paths = tracks.map(track => {
+      return {
+        params: { cup: slug(cup), track: slug(track) },
+      };
+    });
+
+    return accum.concat(paths);
+  }, []);
+}
+
+const { cup, track } = Astro.params;
+---
+
+<MainLayout>
+  <div class="mt-24 flex items-center flex-col gap-24 container">
+    <RecordTypeSelector cup={cup} track={track} />
+    <p class="text-xl">Choose a category</p>
+  </div>
+</MainLayout>

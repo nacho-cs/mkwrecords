@@ -1,0 +1,44 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { Button } from "@/components/ui/button";
+
+const { ghostCount } = await fetch("https://tt.chadsoft.co.uk/index.json").then(
+  res => res.json()
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>MKW Records</title>
+  </head>
+  <body>
+    <MainLayout>
+      <div class="container mt-24 flex">
+        <div class="flex flex-col gap-5">
+          <p class="text-7xl font-semibold">
+            Over <span
+              class="bg-gradient-to-r bg-clip-text from-blue-500 to-purple-500 text-transparent"
+              >{ghostCount}</span
+            > Ghosts Created
+          </p>
+          <p class="text-3xl text-gray-500">
+            View CTGP Time Trial Leaderboards
+          </p>
+          <div class="flex gap-5">
+            <Button>
+              <a href="/records">View records</a>
+            </Button>
+          </div>
+        </div>
+        <img
+          src="https://chadsoft.co.uk/img/channel-preview.jpg"
+          alt="Picture of CTGP Revolution"
+        />
+      </div>
+    </MainLayout>
+  </body>
+</html>
