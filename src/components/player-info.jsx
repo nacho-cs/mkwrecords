@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/dialog";
 import useSwr from "swr";
 import { fetcher } from "@/components/fetcher";
-import { Loading } from "@/components/loading";
 import {
   TooltipProvider,
   TooltipContent,
