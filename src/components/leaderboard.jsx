@@ -14,11 +14,11 @@ export function Leaderboard({ data, flap }) {
   const keyName = flap ? "bestSplitSimple" : "finishTimeSimple";
 
   return (
-    <Table className="w-[600px]">
+    <Table className="w-[400px] md:w-[600px]">
       <TableHeader>
         <TableRow>
           <TableHead>Place</TableHead>
-          <TableHead className="w-[35%]">Player</TableHead>
+          <TableHead className="w-[30%] md:w-[35%]">Player</TableHead>
           <TableHead>Time</TableHead>
           <TableHead>Date</TableHead>
         </TableRow>

@@ -29,7 +29,7 @@ export function RecordTypeSelector({ cup, track }) {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="grid grid-cols-3 md:flex">
         {categories.map(category => (
           <NavigationMenuItem>
             <NavigationMenuLink

@@ -5,7 +5,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Github } from "lucide-react";
+import { Menu, Github } from "lucide-react";
 
 export function Header({ sha }) {
   const items = [
@@ -19,7 +19,7 @@ export function Header({ sha }) {
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/90">
       <div className="container flex items-center h-12 gap-5 justify-between">
-        <span className="font-semibold">MKW Records</span>
+        <a href="/">MKW Records</a>
         <NavigationMenu>
           <NavigationMenuList>
             {items.map(item => (
@@ -33,7 +33,7 @@ export function Header({ sha }) {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <NavigationMenu>
+        <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink

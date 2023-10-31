@@ -17,9 +17,9 @@ const { ghostCount } = await fetch("https://tt.chadsoft.co.uk/index.json").then(
   </head>
   <body>
     <MainLayout>
-      <div class="container mt-24 flex">
+      <div class="flex-col gap-24 container mt-24 flex xl:flex-row">
         <div class="flex flex-col gap-5">
-          <p class="text-7xl font-semibold">
+          <p class="text-7xl">
             Over <span
               class="bg-gradient-to-r bg-clip-text from-blue-500 to-purple-500 text-transparent"
               >{ghostCount}</span

@@ -3,10 +3,9 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import { CupSelector } from "@/components/cup-selector";
 import { TrackSelector } from "@/components/track-selector";
 import { slug } from "github-slugger";
+import { tracks } from "@/tracks";
 
 export async function getStaticPaths() {
-  const { tracks } = await import("@/tracks");
-
   const paths = Object.keys(tracks).map(cup => {
     return { params: { cup: slug(cup) }, props: { tracks: tracks[cup] } };
   });
@@ -15,12 +14,12 @@ export async function getStaticPaths() {
 }
 
 const { cup } = Astro.params;
-const { tracks } = Astro.props;
+const { tracks: cupTracks } = Astro.props;
 ---
 
 <MainLayout>
   <div class="mt-24 container flex flex-col items-center gap-24">
     <CupSelector />
-    <TrackSelector cupName={cup} cupTracks={tracks} />
+    <TrackSelector cupName={cup} cupTracks={cupTracks} />
   </div>
 </MainLayout>
