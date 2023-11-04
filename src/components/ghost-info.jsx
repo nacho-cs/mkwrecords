@@ -62,7 +62,7 @@ export function GhostInfo({ path, children }) {
           <DialogDescription>
             Controller: {controllerMap[data.controller]} •{" "}
             <a
-              href={`tt.https://chadsoft.co.uk${path.replace(/json$/, "rkg")}`} className="hover:underline">
+              href={`https://tt.chadsoft.co.uk${path.replace(/json$/, "rkg")}`} className="hover:underline">
               Download
             </a>
           </DialogDescription>
