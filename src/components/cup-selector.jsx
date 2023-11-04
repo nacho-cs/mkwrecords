@@ -13,7 +13,7 @@ export function CupSelector() {
   return (
     <div className="grid grid-cols-4 grid-rows-2 gap-2 w-96">
       {cups.map(cup => (
-        <a href={`/records/${cup}`}>
+        <a href={`/records/${cup}`} key={cup}>
           <img
             src={`/${cup}-cup.svg`}
             className="w-24 hover:p-[2px]"

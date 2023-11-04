@@ -31,7 +31,7 @@ export function RecordTypeSelector({ cup, track }) {
     <NavigationMenu>
       <NavigationMenuList className="grid grid-cols-3 md:flex">
         {categories.map(category => (
-          <NavigationMenuItem>
+          <NavigationMenuItem key={category.slug}>
             <NavigationMenuLink
               href={`/records/${cup}/${track}/${category.slug}`}
               className={navigationMenuTriggerStyle()}>

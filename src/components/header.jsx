@@ -5,7 +5,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 export function Header({ sha }) {
   const items = [
