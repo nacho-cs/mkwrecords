@@ -1,11 +1,6 @@
 ---
 import { Header } from "@/components/header";
 import "@/index.css";
-
-const [{ sha }] = await fetch(
-  "https://api.github.com/repos/nacho-cs/mkwrecords/commits"
-).then(res => res.json());
-console.log(sha)
 ---
 
 <html lang="en">
@@ -17,7 +12,7 @@ console.log(sha)
     <title>MKW Records</title>
   </head>
   <body>
-    <Header sha={sha} />
+    <Header />
     <slot />
   </body>
 </html>

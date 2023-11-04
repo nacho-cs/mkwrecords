@@ -7,14 +7,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Github } from "lucide-react";
 
-export function Header({ sha }) {
+export function Header() {
   const items = [
     {
       text: "Records",
       href: "/records",
     },
   ];
-  sha = sha.slice(0, 8);
 
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/90">
@@ -44,9 +43,9 @@ export function Header({ sha }) {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink
-                href={`https://github.com/nacho-cs/mkwrecords/commit/${sha}`}
+                href={`https://github.com/nacho-cs/mkwrecords/commits`}
                 className={navigationMenuTriggerStyle()}>
-                {sha}
+                View commits
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
