@@ -2,7 +2,9 @@
 import { Header } from "@/components/header";
 import "@/index.css";
 
-const sha = "52e4ef627f34e149796094d30538f5101206c998";
+const [{ sha }] = await fetch(
+  "https://api.github.com/repos/nacho-cs/mkwrecords/commits"
+).then(res => res.json());
 ---
 
 <html lang="en">

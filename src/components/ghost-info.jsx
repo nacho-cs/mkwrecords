@@ -60,7 +60,11 @@ export function GhostInfo({ path, children }) {
             {data.player} on {data.trackName}
           </DialogTitle>
           <DialogDescription>
-            Controller: {controllerMap[data.controller]}
+            Controller: {controllerMap[data.controller]} •{" "}
+            <a
+              href={`tt.https://chadsoft.co.uk${path.replace(/json$/, "rkg")}`} className="hover:underline">
+              Download
+            </a>
           </DialogDescription>
         </DialogHeader>
         <VisXYContainer
